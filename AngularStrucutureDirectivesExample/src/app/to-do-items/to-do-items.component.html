@@ -1,22 +1,27 @@
-<h3>Structure directives *ngFor</h3>
-<h4>Simple item</h4>
-<div><span><b>Id:</b></span> {{toDoItem.id}}</div>
-<div><span><b>Name:</b></span> {{toDoItem.name}}</div>
-<div><span><b>Completed:</b></span> {{toDoItem.isCompleted}}</div>
-<ul class="items">
-    <li *ngFor="let item of items">
-        {{item.name}}
-    </li>
-</ul>
-<hr/>
-<div *ngIf="items.length>0" class="todo-count">
-    {{items.length}} {{items.length > 1 ? "items" : "item"}}
+<h2>Structure directives *ngFor</h2>
+<div *ngIf="selectedItem">
+  <h3>{{selectedItem.name}}</h3>
+  <div><span><b>Id:</b></span> {{selectedItem.id}}</div>
+  <label for="selectedItem.name"><span><b>Name:</b></span></label>
+  <input type="text" [(ngModel)]="selectedItem.name" placeholder="name" name="selectedItem.name" />
+
+  <label><span><b>Completed:</b></span>
+    <input type="checkbox" [(ngModel)]="selectedItem.isCompleted" /></label>
 </div>
-<hr/>
+<ul class="items">
+  <li *ngFor="let item of items" [class.selected]="item===selectedItem" (click)="onSelect(item)">
+    {{item.id}}: {{item.name}}
+  </li>
+</ul>
+<hr />
+<div *ngIf="items.length>0" class="todo-count">
+  {{items.length}} {{items.length > 1 ? "items" : "item"}}
+</div>
+<hr />
 <div [ngSwitch]="car">
-    <p *ngSwitchCase="'Audi'">Сегодня поедем на Audi</p>
-    <p *ngSwitchCase="'BMW'">Сегодня поедем на BMW</p>
-    <p *ngSwitchCase="'VW'">Сегодня поедем на VolksWagen</p>
-    <p *ngSwitchCase="'Jeep'">Сегодня поедем на Джипе!</p>
-    <p *ngSwitchDefault>Сегодня пойдем пешком!</p>
+  <p *ngSwitchCase="'Audi'">Сегодня поедем на Audi</p>
+  <p *ngSwitchCase="'BMW'">Сегодня поедем на BMW</p>
+  <p *ngSwitchCase="'VW'">Сегодня поедем на VolksWagen</p>
+  <p *ngSwitchCase="'Jeep'">Сегодня поедем на Джипе!</p>
+  <p *ngSwitchDefault>Сегодня пойдем пешком!</p>
 </div>

@@ -8,15 +8,21 @@ import {ITEMS} from "../mock-todo-items"
 })
 export class ToDoItemsComponent implements OnInit {
   items = ITEMS;
-  toDoItem: ToDoItem = {
-    id: 1 ,
-    name: "Закончить проект по автостеллам",
-    isCompleted: false
-  }
+  selectedItem: ToDoItem;// = ITEMS[0];
+  // toDoItem: ToDoItem = {
+  //   id: 1 ,
+  //   name: "Закончить проект по автостеллам",
+  //   isCompleted: false
+  // }
   car: string = "Жигули";
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelect(item){
+    //if(item instanceof ToDoItem)
+    this.selectedItem = item;
+    //console.log(`${item.name}`);
+  }
 }
