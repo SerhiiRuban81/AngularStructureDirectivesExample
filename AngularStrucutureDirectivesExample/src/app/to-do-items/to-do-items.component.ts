@@ -13,6 +13,7 @@ export class ToDoItemsComponent implements OnInit {
     name: "Закончить проект по автостеллам",
     isCompleted: false
   }
+  car: string = "Жигули";
   constructor() { }
 
   ngOnInit(): void {

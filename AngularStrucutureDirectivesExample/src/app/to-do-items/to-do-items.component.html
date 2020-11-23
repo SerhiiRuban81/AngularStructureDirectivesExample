@@ -3,8 +3,20 @@
 <div><span><b>Id:</b></span> {{toDoItem.id}}</div>
 <div><span><b>Name:</b></span> {{toDoItem.name}}</div>
 <div><span><b>Completed:</b></span> {{toDoItem.isCompleted}}</div>
-<ul>
+<ul class="items">
     <li *ngFor="let item of items">
         {{item.name}}
     </li>
 </ul>
+<hr/>
+<div *ngIf="items.length>0" class="todo-count">
+    {{items.length}} {{items.length > 1 ? "items" : "item"}}
+</div>
+<hr/>
+<div [ngSwitch]="car">
+    <p *ngSwitchCase="'Audi'">Сегодня поедем на Audi</p>
+    <p *ngSwitchCase="'BMW'">Сегодня поедем на BMW</p>
+    <p *ngSwitchCase="'VW'">Сегодня поедем на VolksWagen</p>
+    <p *ngSwitchCase="'Jeep'">Сегодня поедем на Джипе!</p>
+    <p *ngSwitchDefault>Сегодня пойдем пешком!</p>
+</div>
