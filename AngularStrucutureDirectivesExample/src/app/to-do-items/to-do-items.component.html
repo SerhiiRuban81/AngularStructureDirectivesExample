@@ -1,0 +1,10 @@
+<h3>Structure directives *ngFor</h3>
+<h4>Simple item</h4>
+<div><span><b>Id:</b></span> {{toDoItem.id}}</div>
+<div><span><b>Name:</b></span> {{toDoItem.name}}</div>
+<div><span><b>Completed:</b></span> {{toDoItem.isCompleted}}</div>
+<ul>
+    <li *ngFor="let item of items">
+        {{item.name}}
+    </li>
+</ul>
